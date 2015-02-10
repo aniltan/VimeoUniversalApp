@@ -33,7 +33,7 @@ namespace VimeoUniversalApp.Service.Providers
             requestMaker = new NetworkWebRequestMaker();
             Settings = new VimeoServerSettings();
 
-            requestMaker.FetchUrlAndDeserializeTo(
+            requestMaker.FetchUrlAndDeserializeTo( 
               Settings.GetVimeoVideosBySearch(query),
               "bearer facbb636c46f813b3f064d9575b3434d",
               (success, response) =>
