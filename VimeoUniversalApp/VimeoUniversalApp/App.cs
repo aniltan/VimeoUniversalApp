@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VimeoUniversalApp.Service.Providers;
+using VimeoUniversalApp.ViewModels;
+using VimeoUniversalApp.Views;
 using Xamarin.Forms;
 
 namespace VimeoUniversalApp
@@ -18,16 +20,7 @@ namespace VimeoUniversalApp
 
             btn.Clicked += btn_Clicked;
            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-						btn
-					}
-                }
-            };
+            MainPage = new NavigationPage(GetMainPage());
         }
 
         void btn_Clicked(object sender, EventArgs e)
@@ -57,6 +50,20 @@ namespace VimeoUniversalApp
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public static Page GetMainPage()
+        {
+            return new WelcomePageView();
+        }
+
+        private static ViewModelLocator _locator;
+        public static ViewModelLocator Locator
+        {
+            get
+            {
+                return _locator ?? (_locator = new ViewModelLocator());
+            }
         }
     }
 }
