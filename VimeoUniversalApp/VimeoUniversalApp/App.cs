@@ -13,28 +13,8 @@ namespace VimeoUniversalApp
     {
         public App()
         {
-            var btn = new Button
-            {
-                Text = "Welcome to Xamarin Forms!"
-            };
-
-            btn.Clicked += btn_Clicked;
            // The root page of your application
             MainPage = new NavigationPage(GetMainPage());
-        }
-
-        void btn_Clicked(object sender, EventArgs e)
-        {
-            VimeoSearchDataProvider dataProvider = new VimeoSearchDataProvider();
-
-            dataProvider.GetSearchResult("test",
-                (success, list) =>
-                {
-                    if (success)
-                    { }
-                    else
-                    { }
-                });
         }
 
         protected override void OnStart()

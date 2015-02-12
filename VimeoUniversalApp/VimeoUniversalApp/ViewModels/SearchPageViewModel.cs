@@ -2,9 +2,11 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VimeoUniversalApp.Models;
 using VimeoUniversalApp.Service.Providers;
 using VimeoUniversalApp.Views;
 using Xamarin.Forms;
@@ -25,10 +27,7 @@ namespace VimeoUniversalApp.ViewModels
 
         private RelayCommand buttonClickedCommand;
 
-        /// <summary>
-        /// Service Provider
-        /// </summary>
-        VimeoSearchDataProvider DataProvider { get { return App.Locator.GetInstance<VimeoSearchDataProvider>(); } }
+        
 
         /// <summary>
         /// Gets the ButtonClickedCommand.
@@ -41,16 +40,9 @@ namespace VimeoUniversalApp.ViewModels
                     ?? (buttonClickedCommand = new RelayCommand(
                         ()=>
                         {
-                            if (!string.IsNullOrEmpty(this.SearchQuery))
+                            if (!string.IsNullOrEmpty(this.SearchText))
                             {
-                                this.DataProvider.GetSearchResult(this.SearchQuery,
-                                    (success, list) =>
-                                    {
-                                        if (success && list != null && list.Count > 0)
-                                        {
-                                            Navigation.PushAsync(new SearchResultsView(list));                                        
-                                        }
-                                    });
+                                Navigation.PushModalAsync(new NavigationPage(new SearchResultsView(SearchText)));   
                             }
                         }));
             }
@@ -79,25 +71,67 @@ namespace VimeoUniversalApp.ViewModels
         }
 
         /// <summary>
-        /// The <see cref="SearchQuery" /> property's name.
+        /// Service Provider
         /// </summary>
-        public const string SearchQueryPropertyName = "SearchQuery";
-        private string searchQuery;
+        VimeoSearchDataProvider DataProvider { get { return App.Locator.GetInstance<VimeoSearchDataProvider>(); } }
 
         /// <summary>
-        /// Sets and gets the SearchQuery property.
+        /// The <see cref="SearchResult" /> property's name.
+        /// </summary>
+        public const string SearchResultPropertyName = "SearchResult";
+        private ObservableCollection<VimeoVideoModel> searchResult;
+
+        /// <summary>
+        /// Sets and gets the SearchResult property.
         /// Changes to that property's value raise the PropertyChanged event. 
         /// </summary>
-        public string SearchQuery
+        public ObservableCollection<VimeoVideoModel> SearchResult
         {
             get
             {
-                return searchQuery;
+                return searchResult;
             }
             set
             {
-                Set(() => SearchQuery, ref searchQuery, value);
+                Set(() => SearchResult, ref searchResult, value);
             }
+        }
+
+        /// <summary>
+        /// The <see cref="IsRunning" /> property's name.
+        /// </summary>
+        public const string IsRunningPropertyName = "SearchText";
+        private bool isRunning;
+
+        /// <summary>
+        /// Sets and gets the IsRunning property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public bool IsRunning
+        {
+            get
+            {
+                return isRunning;
+            }
+            set
+            {
+                Set(() => IsRunning, ref isRunning, value);
+            }
+        }
+
+        public void LoadList(string searchQuery)
+        {
+            this.IsRunning = true;
+
+            this.DataProvider.GetSearchResult(searchQuery,
+                (success, list) =>
+                {
+                    this.IsRunning = false;
+                    if (success && list != null && list.Count > 0)
+                    {
+                        SearchResult = new ObservableCollection<VimeoVideoModel>(list);
+                    }
+                });
         }
     }
 }
