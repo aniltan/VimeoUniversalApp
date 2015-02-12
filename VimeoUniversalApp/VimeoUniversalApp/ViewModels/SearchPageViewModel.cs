@@ -25,29 +25,6 @@ namespace VimeoUniversalApp.ViewModels
         /// </summary>
         public INavigation Navigation { get; set; }
 
-        private RelayCommand buttonClickedCommand;
-
-        
-
-        /// <summary>
-        /// Gets the ButtonClickedCommand.
-        /// </summary>
-        public RelayCommand ButtonClickedCommand
-        {
-            get
-            {
-                return buttonClickedCommand
-                    ?? (buttonClickedCommand = new RelayCommand(
-                        ()=>
-                        {
-                            if (!string.IsNullOrEmpty(this.SearchText))
-                            {
-                                Navigation.PushModalAsync(new NavigationPage(new SearchResultsView(SearchText)));   
-                            }
-                        }));
-            }
-        }
-
         /// <summary>
         /// The <see cref="SearchText" /> property's name.
         /// </summary>

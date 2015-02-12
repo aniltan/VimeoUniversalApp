@@ -53,14 +53,10 @@
     <Compile Include="Service\Providers\VimeoSearchDataProvider.cs" />
     <Compile Include="Settings\VimeoServerSettings.cs" />
     <Compile Include="ViewModels\SearchPageViewModel.cs" />
-    <Compile Include="ViewModels\SearchResultsViewModel.cs" />
     <Compile Include="ViewModels\WelcomePageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\SearchPageView.xaml.cs">
       <DependentUpon>SearchPageView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SearchResultsView.xaml.cs">
-      <DependentUpon>SearchResultsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomePageView.xaml.cs">
       <DependentUpon>WelcomePageView.xaml</DependentUpon>
@@ -97,12 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SearchPageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\SearchResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

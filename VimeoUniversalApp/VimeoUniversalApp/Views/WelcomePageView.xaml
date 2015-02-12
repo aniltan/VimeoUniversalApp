@@ -5,7 +5,5 @@
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
     <Label Text="{Binding WelcomeText}" VerticalOptions="Center" HorizontalOptions="Center" />
     <Button Text="Click to Search!" Command="{Binding ButtonClickedCommand}" />
-
-    <ActivityIndicator Color="Red" IsRunning="{Binding IsRunning}" VerticalOptions="Center" HorizontalOptions="Center"/>
   </StackLayout>
 </ContentPage>

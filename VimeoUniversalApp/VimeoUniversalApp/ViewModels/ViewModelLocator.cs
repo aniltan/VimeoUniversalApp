@@ -29,7 +29,6 @@ namespace VimeoUniversalApp.ViewModels
             // add the viewmodels
             SimpleIoc.Default.Register<WelcomePageViewModel>();
             SimpleIoc.Default.Register<SearchPageViewModel>();
-            SimpleIoc.Default.Register<SearchResultsViewModel>();
 
             // add the service
             SimpleIoc.Default.Register<VimeoSearchDataProvider>();
