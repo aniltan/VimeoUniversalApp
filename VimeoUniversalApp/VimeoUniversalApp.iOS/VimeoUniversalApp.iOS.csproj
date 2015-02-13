@@ -122,6 +122,12 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AdvancedTimer.Forms.Plugin.Abstractions">
+      <HintPath>..\..\packages\Mobilist.AdvancedTimer.Forms.Plugin.1.0.1.0\lib\Xamarin.iOS10\AdvancedTimer.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="AdvancedTimer.Forms.Plugin.iOSUnified">
+      <HintPath>..\..\packages\Mobilist.AdvancedTimer.Forms.Plugin.1.0.1.0\lib\Xamarin.iOS10\AdvancedTimer.Forms.Plugin.iOSUnified.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />

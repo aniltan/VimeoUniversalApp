@@ -28,7 +28,7 @@ namespace VimeoUniversalApp.Views
             var t = e.NewTextValue;
             // perform search on each keypress
             ViewModel.SearchText = t; // WHY isn't binding working for SearchBar ??
-            ViewModel.LoadList(ViewModel.SearchText);
+            //ViewModel.LoadList(ViewModel.SearchText);
         }
 
         //public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -44,7 +44,7 @@ namespace VimeoUniversalApp.Views
         public void OnSearch(object sender, EventArgs e)
         {
             ViewModel.SearchText = SearchFor.Text;
-            ViewModel.LoadList(ViewModel.SearchText);
+            //ViewModel.LoadList(ViewModel.SearchText);
         }
     }
 }

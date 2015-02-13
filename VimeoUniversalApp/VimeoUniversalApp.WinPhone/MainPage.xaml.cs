@@ -18,6 +18,7 @@ namespace VimeoUniversalApp.WinPhone
             SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
 
             global::Xamarin.Forms.Forms.Init();
+            AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.Init();
             LoadApplication(new VimeoUniversalApp.App());
         }
     }

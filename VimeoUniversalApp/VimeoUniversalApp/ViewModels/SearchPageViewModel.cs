@@ -1,10 +1,12 @@
-﻿using GalaSoft.MvvmLight;
+﻿using AdvancedTimer.Forms.Plugin.Abstractions;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using VimeoUniversalApp.Models;
 using VimeoUniversalApp.Service.Providers;
@@ -15,9 +17,89 @@ namespace VimeoUniversalApp.ViewModels
 {
     class SearchPageViewModel: ViewModelBase
     {
+        private readonly IAdvancedTimer timer;
+
+        private bool throttleActive;
+
+        /// <summary>
+        /// Sets and gets the ThrottleActive property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public bool IsThrottleActive
+        {
+            get
+            {
+                return throttleActive;
+            }
+            set
+            {
+                throttleActive = value;
+
+                if (throttleActive)
+                    timer.startTimer();
+                else
+                    timer.stopTimer();
+            }
+        }
+
+        private int TimeInterval 
+        {
+            get 
+            {
+                if (string.IsNullOrEmpty(SearchText))
+                    return 2000;
+
+                if (SearchText.Length == 1)
+                    return 2000;
+
+                if (SearchText.Length == 2)
+                    return 1000;
+
+                return 300; 
+            }
+        }
+
         public SearchPageViewModel() 
         {
-            this.SearchText = "Search on Vimeo";
+            timer = DependencyService.Get<IAdvancedTimer>();
+
+            timer.initTimer(TimeInterval, Timer_Tick, true);
+
+            this.IsThrottleActive = false;
+
+            //this.SearchText = "Search on Vimeo";
+        }
+
+        private void StartSearchResult()
+        {
+            IsThrottleActive = false;
+            if (string.IsNullOrEmpty(SearchText))
+            {
+                this.SearchResult = null;
+            }
+            else
+            {
+                timer.setInterval(TimeInterval);
+                IsThrottleActive = true;
+            }
+        }
+
+        private void UpdateSearchResult()
+        {
+            if (string.IsNullOrEmpty(SearchText))
+            {
+                this.SearchResult = null;
+            }
+            else
+            {
+                this.LoadList(SearchText);
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            IsThrottleActive = false;
+            UpdateSearchResult();
         }
 
         /// <summary>
@@ -44,6 +126,7 @@ namespace VimeoUniversalApp.ViewModels
             set
             {
                 Set(() => SearchText, ref searchText, value);
+                StartSearchResult();
             }
         }
 
