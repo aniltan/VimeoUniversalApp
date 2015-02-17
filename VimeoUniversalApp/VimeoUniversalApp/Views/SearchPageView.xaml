@@ -12,9 +12,9 @@
       TextChanged="OnValueChanged"
 				SearchButtonPressed="OnSearch" />
 
-      <ActivityIndicator Color="Red" IsRunning="{Binding IsRunning}" VerticalOptions="Center" HorizontalOptions="Center"/>
+      <ActivityIndicator Color="Blue" IsRunning="{Binding IsRunning}" VerticalOptions="Center" HorizontalOptions="Center"/>
       
-      <ListView x:Name="listView" ItemsSource="{Binding SearchResult}" RowHeight="355">
+      <ListView x:Name="listView" ItemsSource="{Binding SearchResult}" ItemSelected="OnItemSelected" RowHeight="355">
         <!--<ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell>

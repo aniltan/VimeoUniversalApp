@@ -51,5 +51,28 @@ namespace VimeoUniversalApp.Service.Providers
               },
               false);
         }
+
+        /// <summary>
+        /// Gets the search results matching the search query.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetVideoPlayerDetails(string id, Action<VimeoPlayerRootModel> callback)
+        {
+            requestMaker = new NetworkWebRequestMaker();
+            Settings = new VimeoServerSettings();
+
+            Uri url = Settings.GetVimeoPlayerDetails(id);
+
+            requestMaker.FetchUrlAndDeserializeTo(
+              url,
+              null,
+              (success, response) =>
+              {
+                  VimeoPlayerRootModel result = JsonConvert.DeserializeObject<VimeoPlayerRootModel>(response);
+                  callback(result);
+              },
+              false);
+        }
     }
 }
