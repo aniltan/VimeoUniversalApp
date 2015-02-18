@@ -62,7 +62,14 @@ namespace VimeoUniversalApp.Models
         {
             get
             {
-                return this.pictures.sizes[3].link;
+                if (pictures == null)
+                    return null;
+                if (pictures.sizes == null)
+                    return null;
+                if (pictures.sizes.Count == 0)
+                    return null;
+                else
+                    return this.pictures.sizes[pictures.sizes.Count-1].link;
             }
 
             set { }
