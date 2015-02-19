@@ -14,9 +14,7 @@ namespace VimeoUniversalApp.Views
         {
             InitializeComponent();
 
-            this.ViewModel.Navigation = this.Navigation;
             this.BindingContext = this.ViewModel;
-            
         }
 
         /// <summary>

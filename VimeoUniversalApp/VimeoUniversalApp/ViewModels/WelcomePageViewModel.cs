@@ -15,14 +15,8 @@ namespace VimeoUniversalApp.ViewModels
     {
         public WelcomePageViewModel() 
         {
-            this.WelcomeText = "Welcome to Vimeo Universal App!";
-            //SimpleIoc.Default.Register<INavigation>(() => { return this.Navigation; });
+            this.WelcomeText = "Welcome to Vimeo!";
         }
-
-        /// <summary>
-        /// Contains the navigation object from Xamarin.Forms
-        /// </summary>
-        public INavigation Navigation { get; set; }
 
         /// <summary>
         /// Gets the ButtonClickedCommand.
@@ -31,7 +25,7 @@ namespace VimeoUniversalApp.ViewModels
         {
             get
             {
-                return  new RelayCommand( async ()=> await Navigation.PushAsync(new SearchPageView()));
+                return  new RelayCommand( async ()=> await App.Navigation.PushModalAsync(new HomeMasterPage()));
             }
         }
 

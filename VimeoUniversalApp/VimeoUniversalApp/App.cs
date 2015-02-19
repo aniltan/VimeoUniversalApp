@@ -14,7 +14,8 @@ namespace VimeoUniversalApp
         public App()
         {
            // The root page of your application
-            MainPage = new NavigationPage(GetMainPage());
+            //MainPage = new NavigationPage(GetMainPage()) { BarBackgroundColor = Color.FromHex("3498db")};
+            MainPage = GetMainPage();
         }
 
         protected override void OnStart()
@@ -34,7 +35,11 @@ namespace VimeoUniversalApp
 
         public static Page GetMainPage()
         {
-            return new WelcomePageView();
+            var rootPage = new HomeMasterPage();
+
+            Navigation = rootPage.Navigation;
+
+            return rootPage;
         }
 
         private static ViewModelLocator _locator;
@@ -45,5 +50,7 @@ namespace VimeoUniversalApp
                 return _locator ?? (_locator = new ViewModelLocator());
             }
         }
+
+        public static INavigation Navigation { get; private set; }
     }
 }
