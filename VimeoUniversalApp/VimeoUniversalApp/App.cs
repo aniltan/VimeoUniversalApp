@@ -35,7 +35,7 @@ namespace VimeoUniversalApp
 
         public static Page GetMainPage()
         {
-            var rootPage = new HomeMasterPage();
+            var rootPage = new WelcomePageView();
 
             Navigation = rootPage.Navigation;
 
