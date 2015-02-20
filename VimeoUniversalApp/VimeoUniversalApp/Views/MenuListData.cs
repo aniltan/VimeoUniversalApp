@@ -9,27 +9,22 @@ namespace VimeoUniversalApp.Views
 	{
 		public MenuListData ()
 		{
+            this.Add(new MenuItem()
+            {
+                Title = "Recommended",
+                IconSource = "Lead.png",
+                TargetType = typeof(RecommendedView)
+            });
+
 			this.Add (new MenuItem () { 
-				Title = "Contracts", 
+				Title = "Search", 
 				IconSource = "contracts.png", 
 				TargetType = typeof(SearchPageView)
 			});
 
 			this.Add (new MenuItem () { 
-				Title = "Leads", 
-				IconSource = "Lead.png",
-                TargetType = typeof(SearchPageView)
-			});
-
-			this.Add (new MenuItem () { 
-				Title = "Accounts", 
+				Title = "Categories", 
 				IconSource = "Accounts.png",
-                TargetType = typeof(SearchPageView)
-			});
-
-			this.Add (new MenuItem () {
-				Title = "Opportunities",
-				IconSource = "Opportunity.png",
                 TargetType = typeof(SearchPageView)
 			});
 		}
