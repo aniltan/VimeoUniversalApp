@@ -25,7 +25,7 @@ namespace VimeoUniversalApp.ViewModels
         {
             get
             {
-                return  new RelayCommand( async ()=> await App.Navigation.PushModalAsync(new HomeMasterPage()));
+                return  new RelayCommand( async ()=> await App.Navigation.PushModalAsync(new MasterPage()));
             }
         }
 

@@ -8,15 +8,15 @@ using Xamarin.Forms;
 
 namespace VimeoUniversalApp.Views
 {
-    public partial class HomeMasterPage : MasterDetailPage
+    public partial class MasterPage : MasterDetailPage
     {
-        public HomeMasterPage()
+        public MasterPage()
         {
             InitializeComponent();
 
             this.master.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
 
-            Detail = new NavigationPage(new SearchPageView());
+            Detail = new NavigationPage(new HomePageView());
         }
 
         void NavigateTo(MenuItem menu)

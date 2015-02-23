@@ -11,6 +11,13 @@ namespace VimeoUniversalApp.Views
 		{
             this.Add(new MenuItem()
             {
+                Title = "Home",
+                IconSource = "Lead.png",
+                TargetType = typeof(HomePageView)
+            });
+
+            this.Add(new MenuItem()
+            {
                 Title = "Recommended",
                 IconSource = "Lead.png",
                 TargetType = typeof(RecommendedView)

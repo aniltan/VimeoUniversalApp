@@ -5,7 +5,6 @@
              Title="Search">
   <ContentPage.Content>
     <StackLayout>
-
       <SearchBar x:Name="SearchFor"
         Placeholder="search for"
       Text="{Binding Path=SearchQuery}"

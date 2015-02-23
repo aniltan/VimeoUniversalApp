@@ -59,11 +59,32 @@ namespace VimeoUniversalApp.Settings
 
         public Uri GetVimeoPlayerDetails(string id)
         {
-            //string parameters = string.Format(
-            //    CultureInfo.InvariantCulture,
-            //    "{0}",
-            //    id);
             return new Uri(String.Format(PlayerRoot, id));
+        }
+
+        public Uri GetVimeoRelatedVideosById(string id)
+        {
+            string parameters = string.Format(
+                CultureInfo.InvariantCulture,
+                "videos/{0}/videos?filter=related",
+                id);
+            return new Uri(ContentProvider, parameters);
+        }
+        public Uri GetVimeoCategoriesForVideo(string id)
+        {
+            string parameters = string.Format(
+                CultureInfo.InvariantCulture,
+                "videos/{0}/categories",
+                id);
+            return new Uri(ContentProvider, parameters);
+        }
+        public Uri GetVimeoVideosForCategory(string id)
+        {
+            string parameters = string.Format(
+                CultureInfo.InvariantCulture,
+                "categories/{0}/videos",
+                id);
+            return new Uri(ContentProvider, parameters);
         }
     }
 }

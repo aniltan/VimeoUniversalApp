@@ -52,12 +52,19 @@
     <Compile Include="Service\Network\NetworkWebRequestMaker.cs" />
     <Compile Include="Service\Providers\VimeoSearchDataProvider.cs" />
     <Compile Include="Settings\VimeoServerSettings.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\PlayerPageViewModel.cs" />
+    <Compile Include="ViewModels\MusicVideosViewModel.cs" />
+    <Compile Include="ViewModels\ShortMoviesViewModel.cs" />
+    <Compile Include="ViewModels\RecommendedViewModel.cs" />
     <Compile Include="ViewModels\SearchPageViewModel.cs" />
     <Compile Include="ViewModels\WelcomePageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\HomeMasterPage.xaml.cs">
-      <DependentUpon>HomeMasterPage.xaml</DependentUpon>
+    <Compile Include="Views\MasterPage.xaml.cs">
+      <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePageView.xaml.cs">
+      <DependentUpon>HomePageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MenuItem.cs" />
     <Compile Include="Views\MenuListData.cs" />
@@ -65,6 +72,15 @@
     <Compile Include="Views\MenuPage.cs" />
     <Compile Include="Views\PlayerPageView.xaml.cs">
       <DependentUpon>PlayerPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShortMoviesView.xaml.cs">
+      <DependentUpon>ShortMoviesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MusicVideosView.xaml.cs">
+      <DependentUpon>MusicVideosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecommendedView.xaml.cs">
+      <DependentUpon>RecommendedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchPageView.xaml.cs">
       <DependentUpon>SearchPageView.xaml</DependentUpon>
@@ -119,9 +135,33 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\HomeMasterPage.xaml">
+    <EmbeddedResource Include="Views\MasterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RecommendedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\HomePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MusicVideosView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ShortMoviesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -74,5 +74,72 @@ namespace VimeoUniversalApp.Service.Providers
               },
               false);
         }
+
+        public void GetVimeoRelatedVideos(string id, Action<bool, List<VimeoVideoModel>> callback)
+        {
+            requestMaker = new NetworkWebRequestMaker();
+            Settings = new VimeoServerSettings();
+
+            requestMaker.FetchUrlAndDeserializeTo(
+              Settings.GetVimeoRelatedVideosById(id),
+              "bearer facbb636c46f813b3f064d9575b3434d",
+              (success, response) =>
+              {
+                  VimeoVideoRootModel result = JsonConvert.DeserializeObject<VimeoVideoRootModel>(response);
+                  //VimeoVideoRootModel result = resultObject as VimeoVideoRootModel;
+                  List<VimeoVideoModel> videos = new List<VimeoVideoModel>();
+
+                  if (result.data != null)
+                  {
+                      videos = result.data.OfType<VimeoVideoModel>().ToList();
+                  }
+
+                  callback(success, videos);
+              },
+              false);
+
+        }
+
+        //public void GetVimeoCategoriesForVideo(int videoID, Action<CategoriesResultsModel> callback, int pageNum = 1, int pageSize = 25)
+        //{
+        //    CustomNetworkWebRequestMaker.FetchUrlAndDeserializeTo(ServerSettings.GetVimeoCategoriesForVideo(videoID, pageNum, pageSize), AuthToken, (success, response) =>
+        //    {
+        //        try
+        //        {
+        //            if (success)
+        //            {
+        //                CategoriesResultsModel relatedVideos = JsonConvert.DeserializeObject<CategoriesResultsModel>(response);
+        //                callback(relatedVideos);
+        //            }
+        //        }
+
+        //        catch (Exception ex)
+        //        {
+        //            Debug.WriteLine(ex);
+        //        }
+        //    }, true);
+        //}
+        //public void GetVimeoVideosForCategory(string category, Action<SearchResultsModel> callback, int pageNum = 1, int pageSize = 25)
+        //{
+        //    CustomNetworkWebRequestMaker.FetchUrlAndDeserializeTo(ServerSettings.GetVimeoVideosForCategory(category, pageNum, pageSize), AuthToken, (success, response) =>
+        //    {
+        //        try
+        //        {
+        //            if (success)
+        //            {
+        //                SearchResultsModel videosForCategory = JsonConvert.DeserializeObject<SearchResultsModel>(response);
+        //                callback(videosForCategory);
+        //            }
+        //        }
+
+        //        catch (Exception ex)
+        //        {
+        //            Debug.WriteLine(ex);
+        //        }
+        //    }, true);
+
+
+
+        //}
     }
 }

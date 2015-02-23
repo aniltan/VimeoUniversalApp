@@ -31,6 +31,9 @@ namespace VimeoUniversalApp.ViewModels
             SimpleIoc.Default.Register<WelcomePageViewModel>();
             SimpleIoc.Default.Register<SearchPageViewModel>();
             SimpleIoc.Default.Register<PlayerPageViewModel>();
+            SimpleIoc.Default.Register<RecommendedViewModel>();
+            SimpleIoc.Default.Register<ShortMoviesViewModel>();
+            SimpleIoc.Default.Register<MusicVideosViewModel>();
 
             // add the service
             SimpleIoc.Default.Register<VimeoSearchDataProvider>();
