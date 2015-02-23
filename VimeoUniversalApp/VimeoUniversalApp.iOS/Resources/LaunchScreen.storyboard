@@ -21,7 +21,7 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.074509803921568626" green="0.11372549019607843" blue="0.10980392156862745" alpha="1"/>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
@@ -35,5 +35,17 @@
     </scenes>
     <resources>
         <image name="Icon-60.png" width="180" height="180"/>
+        <image name="account.png" width="16" height="16"/>
+        <image name="accounts.png" width="16" height="16"/>
+        <image name="contracts.png" width="16" height="16"/>
+        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="lead.png" width="16" height="16"/>
+        <image name="opportunity.png" width="16" height="16"/>
+        <image name="settings.png" width="14" height="15"/>
     </resources>
 </document>

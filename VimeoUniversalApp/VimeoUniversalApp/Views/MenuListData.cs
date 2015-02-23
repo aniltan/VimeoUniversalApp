@@ -29,11 +29,11 @@ namespace VimeoUniversalApp.Views
 				TargetType = typeof(SearchPageView)
 			});
 
-			this.Add (new MenuItem () { 
-				Title = "Categories", 
-				IconSource = "Accounts.png",
-                TargetType = typeof(SearchPageView)
-			});
+            //this.Add (new MenuItem () { 
+            //    Title = "Categories", 
+            //    IconSource = "Accounts.png",
+            //    TargetType = typeof(SearchPageView)
+            //});
 		}
 	}
 }

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VimeoUniversalApp.Views.WelcomePageView" BackgroundColor="#3498db">
+             x:Class="VimeoUniversalApp.Views.WelcomePageView" BackgroundColor="#ff131d1c">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding WelcomeText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding WelcomeText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
     
     <Entry Placeholder="Enter email address"></Entry>
     <Entry Placeholder="Enter password" IsPassword="true"></Entry>
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
-      <Label Text="Remember Password" VerticalOptions="Center" HorizontalOptions="Center" />
+      <Label Text="Remember Password" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
       <Switch></Switch>
     </StackLayout>
     
