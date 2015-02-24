@@ -42,22 +42,15 @@ namespace VimeoUniversalApp.Droid
             SourceUrl = e.NewElement.FileSource;
 
             videoView = new VideoView(Forms.Context);
-            mediaController = new CustomMediaController(Forms.Context, false);
-            
-            mediaController.SetAnchorView(videoView);
-            mediaController.SetMinimumWidth(videoView.Width);
-            mediaController.RequestFocus(); //will make it display as soon as the video starts                    
-            videoView.SetMediaController(mediaController);
 
-            videoView.Prepared += delegate
-            {
-                videoView.Start();
-            };
+            videoView.SetVideoPath(SourceUrl);
+            videoView.SetMediaController(new CustomMediaController(Forms.Context, false));
+            videoView.RequestFocus();
 
-            player = new MediaPlayer();
-            
             base.SetNativeControl(videoView);
-            Control.Holder.AddCallback(this);     
+            Control.Holder.AddCallback(this);
+
+            videoView.Start();
         }
         public string SourceUrl;
         public MediaPlayer player;
@@ -66,17 +59,6 @@ namespace VimeoUniversalApp.Droid
 
         public void SurfaceCreated(ISurfaceHolder holder)
         {
-            player.SetDisplay(holder);
-
-            VimeoUniversalApp.Views.VideoView helper = (VimeoUniversalApp.Views.VideoView)this.Element;
-            
-            player.SetDataSource(SourceUrl);
-
-            player.Prepare();
-
-            player.Start();
-
-            player.SetDisplay(holder);
         }
     }
 
@@ -84,7 +66,10 @@ namespace VimeoUniversalApp.Droid
     {
         public CustomMediaController(Context context, bool b) : base(context, false) { }
 
-        public override void Hide() { }       //this will make controller not to disappear after interaction
+        public override void Hide() 
+        {
+            base.Hide(); 
+        }  
         public override void Show()
         {
             base.Show();

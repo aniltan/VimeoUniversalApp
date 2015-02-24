@@ -15,7 +15,7 @@ namespace VimeoUniversalApp.Views
         {
             InitializeComponent();
             this.BindingContext = this.ViewModel;
-            this.ViewModel.LoadList("Akustikhane");
+            this.ViewModel.LoadList("Istanbul Acoustic Sessions");
         }
 
         /// <summary>
@@ -27,7 +27,9 @@ namespace VimeoUniversalApp.Views
         {
             var video = e.SelectedItem as VimeoVideoModel;
 
-            Navigation.PushAsync(new PlayerPageView(video));
+            PlayerPageView page = new PlayerPageView(video);
+
+            Navigation.PushAsync(page);
         }
     }
 }

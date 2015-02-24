@@ -12,7 +12,6 @@ namespace VimeoUniversalApp.Views
         public Action StopAction;
         public VideoView()
         {
-
         }
 
         public static readonly BindableProperty FileSourceProperty =
