@@ -17,7 +17,19 @@ namespace VimeoUniversalApp.Views
 
             this.ViewModel.Navigation = this.Navigation;
             this.BindingContext = this.ViewModel;
-            this.GetPlayerUrl(video.id.ToString());
+            this.GetPlayerUrl(video.id.ToString());   
+        }
+
+        protected override bool OnBackButtonPressed() 
+        {
+            this.Content = null;
+            Navigation.PopAsync();
+            return true;
+        }
+
+        protected override void OnDisappearing()
+        {
+            this.Content = null;
         }
 
         /// <summary>
