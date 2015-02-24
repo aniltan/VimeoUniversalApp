@@ -42,7 +42,7 @@ namespace VimeoUniversalApp.iOS
             moviePlayer.View.ContentMode = UIViewContentMode.ScaleToFill;
             moviePlayer.View.AutoresizingMask = UIViewAutoresizing.All;
             moviePlayer.RepeatMode = MPMovieRepeatMode.One;
-            moviePlayer.ControlStyle = MPMovieControlStyle.None;
+            moviePlayer.ControlStyle = MPMovieControlStyle.Fullscreen;
             moviePlayer.ScalingMode = MPMovieScalingMode.AspectFit;
             this.Frame = moviePlayer.View.Frame = frame;
             Add(moviePlayer.View);
