@@ -75,7 +75,7 @@ namespace VimeoUniversalApp.ViewModels
         {
             this.IsRunning = true;
 
-            this.DataProvider.GetSearchResult(id,
+            this.DataProvider.GetVimeoRelatedVideos(id,
                 (success, list) =>
                 {
                     this.IsRunning = false;

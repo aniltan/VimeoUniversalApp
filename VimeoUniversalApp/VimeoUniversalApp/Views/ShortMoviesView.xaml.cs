@@ -15,7 +15,7 @@ namespace VimeoUniversalApp.Views
         {
             InitializeComponent();
             this.BindingContext = this.ViewModel;
-            this.ViewModel.LoadList("Short Movie");
+            this.ViewModel.LoadList("Short Movies");
         }
 
         /// <summary>
